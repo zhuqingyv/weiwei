@@ -1,13 +1,13 @@
 import CheckBox from '../common/CheckBox';
-import level1Icon from '../../../public/level1.png';
-import level2Icon from '../../../public/level2.png';
-import level3Icon from '../../../public/level3.png';
-import level4Icon from '../../../public/level4.png';
-import level5Icon from '../../../public/level5.png';
-import level6Icon from '../../../public/level6.png';
+import level1Icon from '../../assets/level1.png';
+import level2Icon from '../../assets/level2.png';
+import level3Icon from '../../assets/level3.png';
+import level4Icon from '../../assets/level4.png';
+import level5Icon from '../../assets/level5.png';
+import level6Icon from '../../assets/level6.png';
 
-import LOGOIcon from '../../../public/LOGO.png';
-import LOGO_TITLE_Icon from '../../../public/LOGO-TITLE.png';
+import LOGOIcon from '../../assets/LOGO.png';
+import LOGO_TITLE_Icon from '../../assets/LOGO-TITLE.png';
 const icon = {
   level1Icon,
   level2Icon,

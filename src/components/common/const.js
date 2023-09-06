@@ -1,8 +1,8 @@
-import zhishi from '/public/zhishi.png';
-import tingbian from '/public/tingbian.png';
-import shichang from '/public/shichang.png';
-import bianchuang from '/public/bianchuang.png';
-import wenhua from '/public/wenhua.png';
+import zhishi from '../../assets/zhishi.png';
+import tingbian from '../../assets/tingbian.png';
+import shichang from '../../assets/shichang.png';
+import bianchuang from '../../assets/bianchuang.png';
+import wenhua from '../../assets/wenhua.png';
 
 export const typeList = [
   {

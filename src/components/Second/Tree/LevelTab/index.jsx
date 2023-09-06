@@ -1,5 +1,5 @@
 import ClassTab from '../ClassTab';
-import openIcon from '../../../../../public/open.png';
+import openIcon from '../../../../assets/open.png';
 import './style.css';
 
 const LevelTab = ({ ratio, item, isCurrentLevel, className, onChangeClass, onChangeLevel }) => {

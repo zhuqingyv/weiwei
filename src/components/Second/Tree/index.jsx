@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { original } from '../useSize';
 import LevelTab from './LevelTab';
-import backIcon from '../../../../public/back.png'
-import openIcon from '../../../../public/open.png'
+import backIcon from '../../../assets/back.png'
+import openIcon from '../../../assets/open.png'
 import './style.css';
 
 const Tree = ({ ratio, info, level, className, onChangeLevel, onChangeClass, onBackToFirst = () => null }) => {

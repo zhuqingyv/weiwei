@@ -1,16 +1,16 @@
 import './style.css';
 
-import zhishi from '/public/zhishi.png';
-import tingbian from '/public/tingbian.png';
-import shichang from '/public/shichang.png';
-import bianchuang from '/public/bianchuang.png';
-import wenhua from '/public/wenhua.png';
+import zhishi from '../../../assets/zhishi.png';
+import tingbian from '../../../assets/tingbian.png';
+import shichang from '../../../assets/shichang.png';
+import bianchuang from '../../../assets/bianchuang.png';
+import wenhua from '../../../assets/wenhua.png';
 
-import zhishi2 from '/public/zhishi2.png';
-import tingbian2 from '/public/tingbian2.png';
-import shichang2 from '/public/shichang2.png';
-import bianchuang2 from '/public/bianchuang2.png';
-import wenhua2 from '/public/wenhua2.png';
+import zhishi2 from '../../../assets/zhishi2.png';
+import tingbian2 from '../../../assets/tingbian2.png';
+import shichang2 from '../../../assets/shichang2.png';
+import bianchuang2 from '../../../assets/bianchuang2.png';
+import wenhua2 from '../../../assets/wenhua2.png';
 
 
 export const typeList = [

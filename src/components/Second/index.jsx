@@ -3,8 +3,9 @@ import useSize from './useSize';
 import Tree from './Tree';
 import TopTab from './TopTab';
 import TypeChild from './TypeChild';
-import logoRight from '../../../public/logo-right.png';
+import logoRight from '../../assets/logo-right.png';
 import config from '../../config.json';
+'../../assets'
 
 import './style.css';
 
