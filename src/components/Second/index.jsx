@@ -137,7 +137,7 @@ const Second = ({ info, level, className, type, typeChild, onChangeLevel, onChan
             />
           )
         }
-        <div className='empty-pages'>404</div>
+        <div className='empty-pages'>网页丢啦</div>
       </div>
     </div>
   )

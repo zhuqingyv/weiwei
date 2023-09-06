@@ -76,7 +76,6 @@ const mapDirectory = (baseUrl = 'pages') => {
   const result = buildNodeList(baseUrl, filesSorted);
 
   result.forEach(({ p, c }) => {
-    debugger;
     // 二级目录(课程)
     const secondFileList = fs.readdirSync(p);
     let sortSecondFileList = secondFileList.sort(compareFileNames);
@@ -106,5 +105,19 @@ const mapDirectory = (baseUrl = 'pages') => {
 };
 debugger;
 const result = mapDirectory();
+// level
+const filterResult = result.filter((levelItem) => {
+  const findHtml = (item) => {
+    const { p, c } = item;
+    const hasHtml = p.includes('.html');
+    if (hasHtml) return true;
+    if (c?.length) {
+      return !!c.find((_) => findHtml(_))
+    };
+    return false;
+  };
+
+  return findHtml(levelItem);
+});
 debugger;
-fs.writeFileSync(path.resolve(__dirname, '../src/config.json'), JSON.stringify(result));
+fs.writeFileSync(path.resolve(__dirname, '../src/config.json'), JSON.stringify(filterResult));
