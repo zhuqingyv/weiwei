@@ -40,6 +40,7 @@ const computedIframeSize = (width, height) => {
   return [W_ratio];
 };
 
+// 当前维度
 const getCurrentItem = ({ level, className, type, typeChild }) => {
   const list = config;
   const levelItem = list.find(({ n }) => n === level);

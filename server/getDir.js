@@ -76,6 +76,7 @@ const mapDirectory = (baseUrl = 'pages') => {
   const result = buildNodeList(baseUrl, filesSorted);
 
   result.forEach(({ p, c }) => {
+    debugger;
     // 二级目录(课程)
     const secondFileList = fs.readdirSync(p);
     let sortSecondFileList = secondFileList.sort(compareFileNames);

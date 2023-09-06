@@ -3,6 +3,7 @@ import { original } from '../useSize';
 import LevelTab from './LevelTab';
 import backIcon from '../../../assets/back.png'
 import openIcon from '../../../assets/open.png'
+import backHome from '../../../assets/backHom.png';
 import './style.css';
 
 const Tree = ({ ratio, info, level, className, onChangeLevel, onChangeClass, onBackToFirst = () => null }) => {
@@ -30,10 +31,10 @@ const Tree = ({ ratio, info, level, className, onChangeLevel, onChangeClass, onB
       }}
     >
       {/* 头部导航 */}
-      <div className='tree-header-container' style={{ paddingLeft: `${82*ratio}px` }}>
+      <div className='tree-header-container' style={{ paddingLeft: `${24*ratio}px`, paddingRight: `${12*ratio}px` }}>
         <img
           className='tree-header-back-icon'
-          src={backIcon}
+          src={backHome}
           style={{ marginRight: `${26 * ratio}px` }}
           onClick={onBackToFirst}
         />
