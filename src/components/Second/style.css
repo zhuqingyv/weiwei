@@ -1,0 +1,44 @@
+.second-container {
+  width: 100vw;
+  height: 100vh;
+  background-color: #ff9a9a;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+   transition: all 0.3s;
+}
+
+.second-content-container {
+  border-radius: 24px;
+  background-color: white;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+}
+.second-content-iframe {
+  border: none;
+  position: absolute;
+}
+
+.logo-right-top {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
+.empty-pages {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 30px;
+  color: rgba(51,51,51,0.5);
+}

@@ -1,0 +1,14 @@
+.second-type-container {
+  display: flex;
+  flex-direction: row;
+
+  position: fixed;
+  top: 0;
+
+  z-index: 1;
+}
+
+.second-type-item {
+  object-fit: contain;
+  cursor: pointer;
+}

@@ -1,0 +1,52 @@
+[
+  {
+    "n": "一级",
+    "p": "pages/一级",
+    "c": [
+      {
+        "n": "第一课",
+        "p": "pages/一级/第一课",
+        "c": [
+          {
+            "n": "文化",
+            "p": "pages/一级/第一课/文化/index.html",
+            "c": [],
+            "isPage": true
+          },
+          {
+            "n": "知识",
+            "p": "pages/一级/第一课/知识/index.html",
+            "c": [],
+            "isPage": true
+          }
+        ],
+        "isPage": false
+      },
+      {
+        "n": "第二课",
+        "p": "pages/一级/第二课",
+        "c": [],
+        "isPage": false
+      }
+    ],
+    "isPage": false
+  },
+  {
+    "n": "二级",
+    "p": "pages/二级",
+    "c": [],
+    "isPage": false
+  },
+  {
+    "n": "三级",
+    "p": "pages/三级",
+    "c": [],
+    "isPage": false
+  },
+  {
+    "n": "四级",
+    "p": "pages/四级",
+    "c": [],
+    "isPage": false
+  }
+]

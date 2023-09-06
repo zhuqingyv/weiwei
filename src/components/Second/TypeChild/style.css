@@ -1,0 +1,27 @@
+.type-child-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+
+  z-index: 999;
+}
+
+.type-child-text {
+  user-select: none;
+  font-size: 14px;
+  font-weight: normal;
+  margin-right: 30px;
+}
+
+.type-child-selected {
+  color: #333333;
+}
+
+.type-child-normal {
+  color: #333333;
+  opacity: 0.5;
+}
