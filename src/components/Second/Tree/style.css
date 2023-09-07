@@ -35,6 +35,8 @@
 
   object-fit: contain;
   cursor: pointer;
+  transition: all 0.5s;
+  user-select: none;
   /* margin-right: 26px; */
 }
 

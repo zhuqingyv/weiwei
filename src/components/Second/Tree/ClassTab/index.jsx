@@ -11,7 +11,8 @@ const ClassTab = ({ isCurrentClass, item, ratio, onChangeClass }) => {
       style={{
         paddingTop: `${10 * ratio}px`,
         paddingBottom: `${10 * ratio}px`,
-        color: isCurrentClass ? '#892d3c' : '#8a8b8f',
+        color: isCurrentClass ? '#f38080' : '#8a8b8f',
+        backgroundColor: isCurrentClass ? '#fef5f6' : 'white',
         cursor: 'pointer'
       }}
       onClick={_onChangeClass}

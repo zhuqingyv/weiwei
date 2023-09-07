@@ -50,7 +50,7 @@ const Tree = ({ ratio, info, level, className, onChangeLevel, onChangeClass, onB
         <img
           className='tree-header-back-icon'
           src={backIcon}
-          style={{ marginRight: `${26 * ratio}px`, transform: 'rotate(180deg)' }}
+          style={{ marginRight: `${26 * ratio}px`, transform: `rotate(${show ? 270 : 180}deg)` }}
           onClick={onChangeShow}
         />
       </div>

@@ -5,6 +5,7 @@ import level3Icon from '../../assets/level3.png';
 import level4Icon from '../../assets/level4.png';
 import level5Icon from '../../assets/level5.png';
 import level6Icon from '../../assets/level6.png';
+import backgroundImage from '../../assets/background.jpg';
 
 import LOGOIcon from '../../assets/LOGO.png';
 import LOGO_TITLE_Icon from '../../assets/LOGO-TITLE.png';
@@ -47,7 +48,7 @@ const First = ({ className, level, type, onChangeType, onChangeLevel, info = [] 
   };
 
   return (
-    <div className='first-container'>
+    <div className='first-container' style={{ backgroundImage: `url(${backgroundImage})` }}>
       <img className='logo' src={LOGOIcon} />
       <div className='logo-title'>
         <img src={LOGO_TITLE_Icon} />

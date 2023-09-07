@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import ClassTab from '../ClassTab';
+import backIcon from '../../../../assets/back.png'
 import openIcon from '../../../../assets/open.png';
 import './style.css';
 
@@ -9,6 +10,7 @@ const LevelTab = ({ ratio, item, isCurrentLevel, className, onChangeClass, onCha
 
   const _onChangeLevel = () => {
     if (onChangeLevel) onChangeLevel(item);
+    setShow(!show)
   };
 
   useEffect(() => {
@@ -32,9 +34,11 @@ const LevelTab = ({ ratio, item, isCurrentLevel, className, onChangeClass, onCha
       >
         <span>{n}</span>
         <img
-          className='tree-level-tab-open-tab'
-          src={openIcon}
-          style={{ transform: `rotate(${show ? '0deg' : '-90deg'})` }}
+          className='tree-header-back-icon'
+          // src={openIcon}
+          // style={{ transform: `rotate(${show ? '0deg' : '-90deg'}) scale(1.3)` }}
+          src={backIcon}
+          style={{ transform: `rotate(${show ? '270deg' : '180deg'})` }}
           onClick={() => setShow(!show)}
         />
       </div>
