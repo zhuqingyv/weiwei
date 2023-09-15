@@ -26,7 +26,7 @@ const Tree = ({ ratio, info, level, className, onChangeLevel, onChangeClass, onB
         width: `${365 * ratio}px`,
         top: `${top}px`,
         left: `${original.border.x * ratio}px`,
-        height: `${show ? (height - top - bottom) : (80)}px`,
+        height: `${show ? (height - top - bottom) : (50)}px`,
         boxShadow: show ? '0 0 12px rgba(0,0,0,0.5)' : ''
       }}
     >

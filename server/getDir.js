@@ -103,7 +103,7 @@ const mapDirectory = (baseUrl = 'pages') => {
 
   return result;
 };
-debugger;
+
 const result = mapDirectory();
 // level
 const filterResult = result.filter((levelItem) => {
@@ -119,5 +119,5 @@ const filterResult = result.filter((levelItem) => {
 
   return findHtml(levelItem);
 });
-debugger;
+
 fs.writeFileSync(path.resolve(__dirname, '../src/config.json'), JSON.stringify(filterResult));

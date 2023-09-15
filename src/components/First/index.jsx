@@ -6,6 +6,8 @@ import level4Icon from '../../assets/level4.png';
 import level5Icon from '../../assets/level5.png';
 import level6Icon from '../../assets/level6.png';
 import backgroundImage from '../../assets/background.jpg';
+import backgroundTop from '../../assets/backgroundTop.png';
+import backgroundBottom from '../../assets/backgroundBottom.png';
 
 import LOGOIcon from '../../assets/LOGO.png';
 import LOGO_TITLE_Icon from '../../assets/LOGO-TITLE.png';
@@ -38,7 +40,6 @@ export const typeList = [
 ];
 
 const First = ({ className, level, type, onChangeType, onChangeLevel, info = [] }) => {
-
   const _onChangeType = (value) => {
     if (onChangeType) onChangeType({ n: value })
   };
@@ -48,7 +49,8 @@ const First = ({ className, level, type, onChangeType, onChangeLevel, info = [] 
   };
 
   return (
-    <div className='first-container' style={{ backgroundImage: `url(${backgroundImage})` }}>
+    <div className='first-container' style={{ backgroundImage: `url(${backgroundBottom})` }}>
+      <img src={backgroundTop} className='first-container-background-top' />
       <img className='logo' src={LOGOIcon} />
       <div className='logo-title'>
         <img src={LOGO_TITLE_Icon} />
@@ -86,6 +88,7 @@ const First = ({ className, level, type, onChangeType, onChangeLevel, info = [] 
             )
           })
         }
+        <img className='first-level-item' src={icon[`level${6}Icon`]} style={{ marginRight: '0' }} />
       </div>
     </div>
   );

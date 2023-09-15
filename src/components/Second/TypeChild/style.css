@@ -8,6 +8,8 @@
   left: 24px;
 
   z-index: 998;
+
+  user-select: none;
 }
 
 .type-child-text {
@@ -15,6 +17,9 @@
   font-size: 14px;
   font-weight: normal;
   margin-right: 30px;
+
+  user-select: none;
+  cursor: pointer;
 }
 
 .type-child-selected {

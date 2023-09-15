@@ -32,17 +32,40 @@ const useParams = () => {
   return [params, baseUrl]
 };
 
+const getCurrentTarget = (state) => {
+  const {
+    level,
+    className,
+    type
+  } = state;
+
+  const levelItem = config.find(({ n }) => n === level);
+  const classItem = levelItem.c.find(({ n }) => n === className);
+  const [typeItem] = classItem.c || [];
+  const typeChildItem = typeItem.c?.length ? typeItem.c[0] : undefined;
+
+  return {
+    ...state,
+    level: levelItem.n,
+    className: classItem.n,
+    type: typeItem.n,
+    typeChild: typeChildItem?.n || ''
+  }
+};
+
 const App = () => {
   const [params] = useParams();
 
-  const [state, setState] = useState({
-    info: config,
-    currentPage: params.page || 'first',
-    level: '一级',
-    className: '第一课',
-    type: '知识',
-    typeChild: cell === 3 ? '' : initTypeChild
-  });
+  const [state, setState] = useState(() => {
+    return getCurrentTarget({
+      info: config,
+      currentPage: params.page || 'first',
+      level: '一级',
+      className: '第一课',
+      type: '知识',
+      typeChild: cell === 3 ? '' : initTypeChild
+    })
+  })
 
   const {
     info,
@@ -61,16 +84,27 @@ const App = () => {
 
   const onChangeLevel = (item = {}) => {
     const { n } = item;
-    setState({ ...state, level: n, currentPage: 'second' });
+    const newState = { ...state, level: n, currentPage: 'second' };
+
+    if (currentPage === 'first') {
+      setState(newState);
+    } else {
+      const _newState = getCurrentTarget(newState);
+      setState(_newState);
+    };
   };
 
   const onChangeClass = (item = {}) => {
     const { n } = item;
-    setState({ ...state, className: n });
+    const newState = { ...state, className: n };
+    const _newState = getCurrentTarget(newState);
+    setState(_newState);
   };
 
   const onBackToFirst = () => {
-    setState({ ...state, currentPage: 'first' })
+    const newState = { ...state, currentPage: 'first', className: '第一课' };
+    const _newState = getCurrentTarget(newState);
+    setState(_newState);
   };
 
   return (

@@ -124,16 +124,18 @@ const Second = ({ info, level, className, type, typeChild, onChangeLevel, onChan
       >
         <TypeChild item={item} onChangeItemIndex={onChangeItemIndex} />
         <img className='logo-right-top' src={logoRight} />
-        <iframe
-          className='second-content-iframe'
-          src={iframeUrl ? `../../../${iframeUrl}` : `../../../pages/${level}/${className}/${type}`}
-          style={{
-            width: '1920px',
-            height: '1080px',
-            transform: `scale(${iframeRatio})`,
-            display: isHTML ? 'block' : 'none'
-          }}
-        />
+        {
+          (isHTML) && <iframe
+            className='second-content-iframe'
+            src={iframeUrl ? `../../../${iframeUrl}` : `../../../pages/${level}/${className}/${type}`}
+            style={{
+              width: '1920px',
+              height: '1080px',
+              transform: `scale(${iframeRatio})`,
+              display: isHTML ? 'block' : 'none'
+            }}
+          />
+        }
         <div className='empty-pages' style={{ transform: `scale(${isHTML ? '0' : '1'})` }}>网页丢啦 ~</div>
       </div>
     </div>
