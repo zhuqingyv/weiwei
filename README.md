@@ -12,6 +12,14 @@
 npm i git
 ```
 
+### 3.项目安装
+
+这里 `fileName` 是文件夹名称,你可以自定义一个，例如: `git clone https://github.com/zhuqingyv/weiwei.git music` 将创建一个music文件夹
+
+``` shell
+git clone https://github.com/zhuqingyv/weiwei.git fileName
+```
+
 ## 基本命令
 
 **cd:** 进入到文件夹,例如:
