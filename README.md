@@ -1,8 +1,47 @@
-# React + Vite
+# Document
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 基本命令:
 
-Currently, two official plugins are available:
+cd: 进入到文件夹,例如:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+``` shell
+cd ./Desktop
+```
+
+## 使用步骤
+
+### 1.进入文件目录
+
+这里你要知道本地的文件目录
+
+``` shell
+cd ./xxxxx
+```
+
+### 2.安装依赖
+
+``` shell
+npm i
+```
+
+### 3.运行预览
+
+``` shell
+npm run dev
+```
+
+### 3.这时候应该唤起一个浏览器网页
+
+## 打包步骤
+
+*打包前要确保已经安装了全部依赖，也就是命令 `npm i`*
+
+### 1.执行命令
+
+``` shell
+npm run build
+```
+
+### 2.检查文件目录
+
+目录中应该有一个`dist`文件夹
