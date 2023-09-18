@@ -1,6 +1,18 @@
 # Document
 
-## 基本命令:
+## 前置条件
+
+### 1.npm 下载(下载nodejs以后会自动带上npm)
+
+[Nodejs Download](https://nodejs.org/en)
+
+### 2.git 安装
+
+``` shell
+npm i git
+```
+
+## 基本命令
 
 **cd:** 进入到文件夹,例如:
 
