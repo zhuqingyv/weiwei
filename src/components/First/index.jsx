@@ -45,7 +45,7 @@ const First = ({ type, onChangeType, onChangeLevel, info = [] }) => {
   };
 
   const _onChangeLevel = (item) => {
-    if (onChangeLevel) onChangeLevel(item, true);
+    if (onChangeLevel) onChangeLevel(item, { n: '第一课' });
   };
 
   return (

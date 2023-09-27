@@ -8,13 +8,13 @@ import './style.css';
 
 const Tree = ({ ratio, info, level, className, onChangeLevel, onChangeClass, onBackToFirst = () => null }) => {
   const [state, setState] = useState({
-    show: false
+    show: false,
+    levelCache: null
   });
-  const levelCache = useRef(null);
   const top = 32 * ratio;
   const bottom = 12 * ratio;
   const height = window.innerHeight;
-  const { show } = state;
+  const { show, levelCache } = state;
 
   const onChangeShow = () => {
     setState({ ...state, show: !show });
@@ -22,17 +22,18 @@ const Tree = ({ ratio, info, level, className, onChangeLevel, onChangeClass, onB
 
   const _onChangeClass = (classItem) => {
     onChangeClass(classItem);
+
     setTimeout(() => {
-      if (levelCache?.current !== null) {
-        onChangeLevel(levelCache.current, classItem);
-        levelCache.current = null;
+      if (levelCache !== null) {
+        onChangeLevel(levelCache, classItem);
+        setState({ ...state });
       };
       onChangeShow();
     }, 300);
   };
 
   const _onchangeLevel = (item) => {
-    levelCache.current = item;
+    setState({ ...state, levelCache: item });
   };
 
   return (
@@ -82,6 +83,7 @@ const Tree = ({ ratio, info, level, className, onChangeLevel, onChangeClass, onB
                 className={className}
                 onChangeLevel={_onchangeLevel}
                 onChangeClass={_onChangeClass}
+                levelCache={levelCache}
               />
             )
           })

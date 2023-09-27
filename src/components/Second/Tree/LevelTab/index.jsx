@@ -4,7 +4,7 @@ import backIcon from '../../../../assets/back.png'
 import openIcon from '../../../../assets/open.png';
 import './style.css';
 
-const LevelTab = ({ ratio, item, isCurrentLevel, className, onChangeClass, onChangeLevel }) => {
+const LevelTab = ({ levelCache, ratio, item, isCurrentLevel, className, onChangeClass, onChangeLevel }) => {
   const [show, setShow] = useState(false);
   const { n, c = [] } = item;
 
@@ -15,7 +15,7 @@ const LevelTab = ({ ratio, item, isCurrentLevel, className, onChangeClass, onCha
 
   useEffect(() => {
     setShow(isCurrentLevel)
-  }, [isCurrentLevel])
+  }, [isCurrentLevel]);
 
   return (
     <>
@@ -44,7 +44,7 @@ const LevelTab = ({ ratio, item, isCurrentLevel, className, onChangeClass, onCha
       </div>
 
       {
-        (!!show && !!c?.length) && <div style={{ marginTop: `${8 * ratio}px` }}>
+        (!!c?.length && levelCache !== null && levelCache?.n === n) && <div style={{ marginTop: `${8 * ratio}px` }}>
           {
             c.map((classItem, i) => {
               return (
