@@ -64,8 +64,8 @@ const App = () => {
       className: '第一课',
       type: '知识',
       typeChild: cell === 3 ? '' : initTypeChild
-    })
-  })
+    });
+  });
 
   const {
     info,
@@ -82,29 +82,41 @@ const App = () => {
     setState({ ...state, type: n });
   };
 
-  const onChangeLevel = (item = {}) => {
+  const onChangeLevel = (item = {}, classItem) => {
     const { n } = item;
-    const newState = { ...state, level: n, currentPage: 'second' };
-
-    if (currentPage === 'first') {
+    if (classItem) {
+      const newState = { ...state, level: n, currentPage: 'second', className: classItem?.n };
       setState(newState);
-    } else {
-      const _newState = getCurrentTarget(newState);
-      setState(_newState);
+      return;
     };
+    const newState = { ...state, level: n, currentPage: 'second' };
+    // if (currentPage === 'first') {
+    //   setState(newState);
+    // } else {
+    //   const _newState = getCurrentTarget(newState);
+    //   setState(_newState);
+    // };
+    setState(newState);
   };
 
-  const onChangeClass = (item = {}) => {
+  const onChangeClass = (item = {}, isFirstPage = false) => {
+    if (isFirstPage) {
+      const { n } = item;
+      const newState = { ...state, className: n };
+      // const _newState = getCurrentTarget(newState);
+      setState(newState);
+      return;
+    };
     const { n } = item;
     const newState = { ...state, className: n };
-    const _newState = getCurrentTarget(newState);
-    setState(_newState);
+    // const _newState = getCurrentTarget(newState);
+    setState(newState);
   };
 
   const onBackToFirst = () => {
-    const newState = { ...state, currentPage: 'first', className: '第一课' };
-    const _newState = getCurrentTarget(newState);
-    setState(_newState);
+    const newState = { ...state, currentPage: 'first' };
+    // const _newState = getCurrentTarget(newState);
+    setState({ ...newState });
   };
 
   return (

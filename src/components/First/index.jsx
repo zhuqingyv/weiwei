@@ -39,13 +39,13 @@ export const typeList = [
   }
 ];
 
-const First = ({ className, level, type, onChangeType, onChangeLevel, info = [] }) => {
+const First = ({ type, onChangeType, onChangeLevel, info = [] }) => {
   const _onChangeType = (value) => {
     if (onChangeType) onChangeType({ n: value })
   };
 
   const _onChangeLevel = (item) => {
-    if (onChangeLevel) onChangeLevel(item);
+    if (onChangeLevel) onChangeLevel(item, true);
   };
 
   return (
@@ -85,7 +85,7 @@ const First = ({ className, level, type, onChangeType, onChangeLevel, info = [] 
                 onClick={() => _onChangeLevel(item)}
                 key={`${item.n}-${i}`}
               />
-            )
+            );
           })
         }
         <img className='first-level-item' src={icon[`level${6}Icon`]} style={{ marginRight: '0' }} />

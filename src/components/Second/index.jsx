@@ -139,7 +139,7 @@ const Second = ({ info, level, className, type, typeChild, onChangeLevel, onChan
         <div className='empty-pages' style={{ transform: `scale(${isHTML ? '0' : '1'})` }}>网页丢啦 ~</div>
       </div>
     </div>
-  )
+  );
 };
 
 export default Second;

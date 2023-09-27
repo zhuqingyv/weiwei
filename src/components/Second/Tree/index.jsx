@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { original } from '../useSize';
 import LevelTab from './LevelTab';
 import backIcon from '../../../assets/back.png'
@@ -9,14 +9,30 @@ import './style.css';
 const Tree = ({ ratio, info, level, className, onChangeLevel, onChangeClass, onBackToFirst = () => null }) => {
   const [state, setState] = useState({
     show: false
-  })
+  });
+  const levelCache = useRef(null);
   const top = 32 * ratio;
   const bottom = 12 * ratio;
   const height = window.innerHeight;
   const { show } = state;
 
   const onChangeShow = () => {
-    setState({ ...state, show: !show })
+    setState({ ...state, show: !show });
+  };
+
+  const _onChangeClass = (classItem) => {
+    onChangeClass(classItem);
+    setTimeout(() => {
+      if (levelCache?.current !== null) {
+        onChangeLevel(levelCache.current, classItem);
+        levelCache.current = null;
+      };
+      onChangeShow();
+    }, 300);
+  };
+
+  const _onchangeLevel = (item) => {
+    levelCache.current = item;
   };
 
   return (
@@ -31,7 +47,7 @@ const Tree = ({ ratio, info, level, className, onChangeLevel, onChangeClass, onB
       }}
     >
       {/* 头部导航 */}
-      <div className='tree-header-container' style={{ paddingLeft: `${24*ratio}px`, paddingRight: `${12*ratio}px` }}>
+      <div className='tree-header-container' style={{ paddingLeft: `${24*ratio}px`, paddingRight: `${12*ratio}px` }} onClick={onChangeShow}>
         <img
           className='tree-header-back-icon'
           src={backHome}
@@ -51,7 +67,6 @@ const Tree = ({ ratio, info, level, className, onChangeLevel, onChangeClass, onB
           className='tree-header-back-icon'
           src={backIcon}
           style={{ marginRight: `${26 * ratio}px`, transform: `rotate(${show ? 270 : 180}deg)` }}
-          onClick={onChangeShow}
         />
       </div>
 
@@ -65,8 +80,8 @@ const Tree = ({ ratio, info, level, className, onChangeLevel, onChangeClass, onB
                 isCurrentLevel={item.n === level}
                 key={`${item.n}-${i}`}
                 className={className}
-                onChangeLevel={onChangeLevel}
-                onChangeClass={onChangeClass}
+                onChangeLevel={_onchangeLevel}
+                onChangeClass={_onChangeClass}
               />
             )
           })
