@@ -17,6 +17,8 @@ const LevelTab = ({ levelCache, ratio, item, isCurrentLevel, className, onChange
     setShow(isCurrentLevel)
   }, [isCurrentLevel]);
 
+  const _show = show && !!c?.length && levelCache !== null && levelCache?.n === n;
+
   return (
     <>
       <div
@@ -38,13 +40,13 @@ const LevelTab = ({ levelCache, ratio, item, isCurrentLevel, className, onChange
           // src={openIcon}
           // style={{ transform: `rotate(${show ? '0deg' : '-90deg'}) scale(1.3)` }}
           src={backIcon}
-          style={{ transform: `rotate(${show ? '270deg' : '180deg'})` }}
+          style={{ transform: `rotate(${_show ? '270deg' : '180deg'})` }}
           onClick={() => setShow(!show)}
         />
       </div>
 
       {
-        (!!c?.length && levelCache !== null && levelCache?.n === n) && <div style={{ marginTop: `${8 * ratio}px` }}>
+        (!!_show) && <div style={{ marginTop: `${8 * ratio}px` }}>
           {
             c.map((classItem, i) => {
               return (

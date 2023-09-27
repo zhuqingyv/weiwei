@@ -28,6 +28,11 @@
 
   user-select: none;
   box-sizing: border-box;
+
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 99999;
   /* padding-left: 82px; */
 }
 

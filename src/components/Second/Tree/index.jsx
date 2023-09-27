@@ -9,7 +9,7 @@ import './style.css';
 const Tree = ({ ratio, info, level, className, onChangeLevel, onChangeClass, onBackToFirst = () => null }) => {
   const [state, setState] = useState({
     show: false,
-    levelCache: null
+    levelCache: { n: "一级" }
   });
   const top = 32 * ratio;
   const bottom = 12 * ratio;
