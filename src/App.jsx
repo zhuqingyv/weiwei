@@ -32,7 +32,7 @@ const useParams = () => {
   return [params, baseUrl]
 };
 
-const getCurrentTarget = (state) => {
+const getCurrentTarget = (state, _findType) => {
   const {
     level,
     className,
@@ -43,13 +43,15 @@ const getCurrentTarget = (state) => {
   const classItem = levelItem.c.find(({ n }) => n === className);
   const [typeItem] = classItem.c || [];
   const typeChildItem = typeItem.c?.length ? typeItem.c[0] : undefined;
+  const findType = (classItem.c || []).find(({ n }) => n === _findType);
 
   return {
     ...state,
     level: levelItem.n,
     className: classItem.n,
     type: typeItem.n,
-    typeChild: typeChildItem?.n || ''
+    typeChild: typeChildItem?.n || '',
+    findType
   }
 };
 
@@ -79,6 +81,7 @@ const App = () => {
 
   const onChangeType = (item = {}) => {
     const { n } = item;
+    Object.assign(state, { ...state, type: n });
     setState({ ...state, type: n });
   };
 
@@ -86,36 +89,57 @@ const App = () => {
     const { n } = item;
     if (classItem) {
       const newState = { ...state, level: n, currentPage: 'second', className: classItem?.n };
+      const _newState = getCurrentTarget(newState, newState.type);
+      if (_newState.findType) {
+        setState(newState);
+        Object.assign(state, newState);
+        return;
+      };
+      setState({ ...newState, type:  _newState.type });
+      Object.assign(state, { ...newState, type:  _newState.type });
+      return;
+    };
+    const _newState = getCurrentTarget(newState);
+    if (_newState.findType) {
       setState(newState);
+      Object.assign(state, newState)
       return;
     };
     const newState = { ...state, level: n, currentPage: 'second' };
-    // if (currentPage === 'first') {
-    //   setState(newState);
-    // } else {
-    //   const _newState = getCurrentTarget(newState);
-    //   setState(_newState);
-    // };
-    setState(newState);
+    Object.assign(state, { ...newState, type: _newState.type })
+    setState({ ...newState, type: _newState.type });
   };
 
   const onChangeClass = (item = {}, isFirstPage = false) => {
     if (isFirstPage) {
       const { n } = item;
       const newState = { ...state, className: n };
-      // const _newState = getCurrentTarget(newState);
+      const _newState = getCurrentTarget(newState, newState.type);
+      if (_newState.findType) {
+        Object.assign(state, newState)
+        setState(newState);
+        return;
+      };
+      Object.assign(state, { ...newState, type: _newState.type })
+      setState({ ...newState, type: _newState.type });
+      return;
+    };
+
+    const { n } = item;
+    const newState = { ...state, className: n };
+    const _newState = getCurrentTarget(newState, newState.type);
+    if (_newState.findType) {
+      Object.assign(state, newState)
       setState(newState);
       return;
     };
-    const { n } = item;
-    const newState = { ...state, className: n };
-    // const _newState = getCurrentTarget(newState);
-    setState(newState);
+    Object.assign(state, { ...newState, type: _newState.type })
+    setState({ ...newState, type: _newState.type });
   };
 
   const onBackToFirst = () => {
     const newState = { ...state, currentPage: 'first' };
-    // const _newState = getCurrentTarget(newState);
+    Object.assign(state, { ...newState })
     setState({ ...newState });
   };
 

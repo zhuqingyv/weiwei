@@ -6,7 +6,7 @@
   z-index: 1;
   overflow: scroll;
 
-  transition: all 0.3s;
+  transition: all 0.3s ease-in-out;
   z-index: 999;
 
   max-width: 350px;

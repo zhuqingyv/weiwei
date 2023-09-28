@@ -8,7 +8,7 @@ import './style.css';
 
 const Tree = ({ ratio, info, level, className, onChangeLevel, onChangeClass, onBackToFirst = () => null }) => {
   const [state, setState] = useState({
-    show: false,
+    show: true,
     levelCache: { n: "一级" }
   });
   const top = 32 * ratio;
@@ -21,15 +21,11 @@ const Tree = ({ ratio, info, level, className, onChangeLevel, onChangeClass, onB
   };
 
   const _onChangeClass = (classItem) => {
-    onChangeClass(classItem);
-
-    setTimeout(() => {
-      if (levelCache !== null) {
-        onChangeLevel(levelCache, classItem);
-        setState({ ...state });
-      };
-      onChangeShow();
-    }, 300);
+    if (levelCache !== null) {
+      onChangeLevel(levelCache, classItem);
+      setState({ ...state });
+    };
+    onChangeShow();
   };
 
   const _onchangeLevel = (item) => {
@@ -48,16 +44,16 @@ const Tree = ({ ratio, info, level, className, onChangeLevel, onChangeClass, onB
       }}
     >
       {/* 头部导航 */}
-      <div className='tree-header-container' style={{ paddingLeft: `${24*ratio}px`, paddingRight: `${12*ratio}px` }} onClick={onChangeShow}>
+      <div className='tree-header-container' style={{ paddingLeft: `${24 * ratio}px`, paddingRight: `${12 * ratio}px` }} onClick={onChangeShow}>
         <img
           className='tree-header-back-icon'
           src={backHome}
           style={{ marginRight: `${26 * ratio}px` }}
           onClick={onBackToFirst}
         />
-        { (!!level) && <div>{ level }</div> }
-        <span style={{ marginLeft: `${8*ratio}px`, marginRight: `${8*ratio}px` }}>·</span>
-        { (!!className) && <div>{ className }</div> }
+        {(!!level) && <div>{level}</div>}
+        <span style={{ marginLeft: `${8 * ratio}px`, marginRight: `${8 * ratio}px` }}>·</span>
+        {(!!className) && <div>{className}</div>}
         {/* <img
           className='tree-header-open-icon'
           src={openIcon}

@@ -4,6 +4,7 @@ import Tree from './Tree';
 import TopTab from './TopTab';
 import TypeChild from './TypeChild';
 import logoRight from '../../assets/logo-right.png';
+import loadingIcon from '../../assets/loading.png';
 import config from '../../config.json';
 '../../assets'
 
@@ -84,6 +85,7 @@ const getIframePath = ({ item, hasTypeChild }) => {
 
 const Second = ({ info, level, className, type, typeChild, onChangeLevel, onChangeClass, onChangeType, onBackToFirst }) => {
   const [_, forceUpdate] = useState(Date.now());
+  const [showLoading, setShowLoading] = useState(false);
   const [width, height, ratio] = useSize({ width: 1920, height: 1080 });
   const [iframeRatio] = computedIframeSize(width, height);
   const backgroundColor = colorMap[type];
@@ -96,6 +98,12 @@ const Second = ({ info, level, className, type, typeChild, onChangeLevel, onChan
   const isHTML = iframeUrl.includes('.html');
   const onChangeItemIndex = () => {
     forceUpdate(Date.now());
+  };
+  const onLoadStart = () => {
+    setShowLoading(true);
+  };
+  const onLoad = () => {
+    setShowLoading(false);
   };
 
   return (
@@ -134,7 +142,14 @@ const Second = ({ info, level, className, type, typeChild, onChangeLevel, onChan
               transform: `scale(${iframeRatio})`,
               display: isHTML ? 'block' : 'none'
             }}
+            onLoadStart={onLoadStart}
+            onLoad={onLoad}
           />
+        }
+        {
+          (isHTML && showLoading) && <div className='loading-container'>
+            <img src={loadingIcon} className='loading' />
+          </div>
         }
         <div className='empty-pages' style={{ transform: `scale(${isHTML ? '0' : '1'})` }}>网页丢啦 ~</div>
       </div>
