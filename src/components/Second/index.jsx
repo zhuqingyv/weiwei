@@ -84,6 +84,7 @@ const getIframePath = ({ item, hasTypeChild }) => {
 };
 
 const Second = ({ info, level, className, type, typeChild, onChangeLevel, onChangeClass, onChangeType, onBackToFirst }) => {
+  localStorage.setItem('currentPageString', 'second');
   const [_, forceUpdate] = useState(Date.now());
   const [showLoading, setShowLoading] = useState(false);
   const [width, height, ratio] = useSize({ width: 1920, height: 1080 });

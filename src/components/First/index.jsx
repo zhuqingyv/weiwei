@@ -20,6 +20,7 @@ const icon = {
   level6Icon
 };
 import './style.css';
+import { useEffect } from 'react';
 
 export const typeList = [
   {
@@ -40,6 +41,7 @@ export const typeList = [
 ];
 
 const First = ({ type, onChangeType, onChangeLevel, info = [] }) => {
+  localStorage.setItem('currentPageString', 'first');
   const _onChangeType = (value) => {
     if (onChangeType) onChangeType({ n: value })
   };

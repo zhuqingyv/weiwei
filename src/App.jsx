@@ -56,12 +56,11 @@ const getCurrentTarget = (state, _findType) => {
 };
 
 const App = () => {
-  const [params] = useParams();
-
   const [state, setState] = useState(() => {
+    const currentPageString = localStorage.getItem('currentPageString');
     return getCurrentTarget({
       info: config,
-      currentPage: params.page || 'first',
+      currentPage: currentPageString || 'first',
       level: '一级',
       className: '第一课',
       type: '知识',
