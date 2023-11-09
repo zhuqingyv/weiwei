@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import config from './config.json';
 import './App.css'
 
@@ -61,9 +61,9 @@ const App = () => {
     return getCurrentTarget({
       info: config,
       currentPage: currentPageString || 'first',
-      level: '一级',
-      className: '第一课',
-      type: '知识',
+      level: sessionStorage.getItem('currentLevel') ||  '一级',
+      className: sessionStorage.getItem('currentClass') ||  '第一课',
+      type: sessionStorage.getItem('currentType') || '知识',
       typeChild: cell === 3 ? '' : initTypeChild
     });
   });
@@ -77,6 +77,12 @@ const App = () => {
     type,
     typeChild
   } = state;
+
+  useEffect(() => {
+    sessionStorage.setItem('currentLevel', level);
+    sessionStorage.setItem('currentClass', className);
+    sessionStorage.setItem('currentType', type);
+  }, [level, className, type]);
 
   const onChangeType = (item = {}) => {
     const { n } = item;
